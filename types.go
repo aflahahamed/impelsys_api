@@ -4,8 +4,8 @@ type CourseRequest struct {
 	CourseId    int    `json:"id"`
 	CourseName  string `json:"couresename"`
 	CoursePrice int    `json:"courseprice"`
-	Fullname    string `json:"fullname"`
-	Website     string `json:"website"`
+	AuthorName  string `json:"authorname"`
+	Website     string `json:"authorwebsite"`
 }
 
 type Course struct {
@@ -16,23 +16,23 @@ type Course struct {
 }
 
 type Author struct {
-	Fullname string `json:"fullname"`
-	Website  string `json:"website"`
+	AuthorName    string `json:"authorname"`
+	AuthorWebsite string `json:"authorwebsite"`
 }
 
 type APIError struct {
 	Error string `json:"error"`
 }
 
-func NewCourse(coursename, fullname, website string, courseprice, courseid int) *Course {
+func NewCourse(coursename, authorname, website string, courseprice, courseid int) *Course {
 
 	return &Course{
 		CourseId:    courseid,
 		CourseName:  coursename,
 		CoursePrice: courseprice,
 		Author: &Author{
-			Fullname: fullname,
-			Website:  website,
+			AuthorName:    authorname,
+			AuthorWebsite: website,
 		},
 	}
 }
