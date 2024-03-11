@@ -2,10 +2,10 @@
 
 To run the API type the following command:
 `make run`
-This will create a binary and run the API on `localhost 4000` port.
+This will create a binary and run the API on `localhost:4000` port.
 
 ## Create course
-To create a course give the following payload with `POST` request:
+To create a course give the following payload with `POST` request to the `localhost:4000/course` path:
 ```
 {
     "couresename":"Golang",
@@ -18,7 +18,7 @@ To create a course give the following payload with `POST` request:
 
 
 ## Update course
-To update a course give the following payload with `PATCH` request along with the course ID to update:
+To update a course give the following payload with `PATCH` request along with the course ID to the `localhost:4000/course` path:
 ```
 {
     "id":2,
