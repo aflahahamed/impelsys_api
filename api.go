@@ -52,7 +52,7 @@ func (s *APIServer) handlePatchCourse(w http.ResponseWriter, r *http.Request) er
 	if err := json.NewDecoder(r.Body).Decode(&updateCourseReq); err != nil {
 		return err
 	}
-	course := NewCourse(updateCourseReq.CourseName, updateCourseReq.Fullname, updateCourseReq.Website, updateCourseReq.CoursePrice, updateCourseReq.CourseId)
+	course := NewCourse(updateCourseReq.CourseName, updateCourseReq.AuthorName, updateCourseReq.Website, updateCourseReq.CoursePrice, updateCourseReq.CourseId)
 
 	err := s.store.UpdateCourse(course)
 	if err != nil {
@@ -70,7 +70,7 @@ func (s *APIServer) handleSetCourse(w http.ResponseWriter, r *http.Request) erro
 	CourseID += 1
 	createCourseReq.CourseId = CourseID
 
-	course := NewCourse(createCourseReq.CourseName, createCourseReq.Fullname, createCourseReq.Website, createCourseReq.CoursePrice, createCourseReq.CourseId)
+	course := NewCourse(createCourseReq.CourseName, createCourseReq.AuthorName, createCourseReq.Website, createCourseReq.CoursePrice, createCourseReq.CourseId)
 	s.store.CreateCourse(course)
 
 	return WriteJSON(w, http.StatusOK, course)
